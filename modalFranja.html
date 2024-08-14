@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Private/CSS/modalFranja.css">
+    <title>Modal Franjas</title>
+</head>
+<body>
+    
+    <Div class="container-modal">
+        <Div class="icono">
+            <img class="imagen" src="./Private/img/moneda.png" alt="moneda">
+        </Div>
+        <Div class="titulo-modal">
+            <h2>Configurar una nueva tarifa</h2>
+        </Div>
+        <Div class="subtitulo-modal">
+            <h3>Completa los datos de la tarifa.</h3>
+        </Div>
+        <div class="container-campos">
+            <label class="label" for="franja">Franja</label>
+            <select class="inputs" name="Franja" id="franja" placeholder="Seleccionar..">
+                <option value="Seleccionar">Seleccionar..</option>
+                <option value="franja-1">Semana-Tarde</option>
+                <option value="franja-2">Semana-Noche</option>
+                <option value="franja-3">Finde-Tarde</option>
+                <option value="franja-4">Finde-Noche</option>
+            </select>
+            <label class="label" for="fecha">Fecha</label>
+            <input class="inputs" type="date" id="fecha">
+            <label class="label" for="tipo-vehiculo">Tipo Vehiculo</label>
+            <select class="inputs" name="Tipo Vehiculo" id="tipo-vehiculo" placeholder="Seleccionar..">
+                <option value="Seleccionar">Seleccionar..</option>
+                <option value="Camion">Camion</option>
+                <option value="Auto">Auto</option>
+                <option value="Camioneta">Camioneta</option>
+                <option value="Moto">Moto</option>
+            </select>
+            <label class="label" for="monto">Monto</label>
+            <input class="inputs" type="number" placeholder="$500" id="monto">
+        </div>
+        <div class="container-buttons">
+            <button class="buton-1">Guardar</button>
+            <button class="buton-2">Cancelar</button>
+        </div>
+    </Div>
+</body>
+</html>
