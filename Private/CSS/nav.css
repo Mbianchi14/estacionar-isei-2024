@@ -1,7 +1,17 @@
+.nav-title{
+	color: #001ec7;
+	font-weight: bold;
+}
+.sub-title-nav{
+	font-weight: bold;
+}
+
 #menu {
 	background: #FFFFFF;
 	height: 33px;
 	border-radius: 10px;
+	max-height: 100px;
+	display: flex;
 }
 #menu ul, #menu li {
 	margin: 0 auto;
@@ -21,7 +31,7 @@
 	line-height: 33px;
 	padding: 0 14px;
 	text-decoration: none;
-	color: #001066;
+	color: #000;
 	font-size: 16px;
 }
 #menu a.dropdown-arrow:after {
@@ -29,7 +39,7 @@
 	margin-left: 5px;
 }
 #menu li a:hover {
-	color: #0022B2;
+	color: #000;
 	background: #F2F2F2;
 }
 #menu input {
@@ -50,7 +60,7 @@
 }
 #menu label:before {
 	font-size: 1.6em;
-	color: #001066;
+	color: #000;
 	content: "\2261"; 
 }
 #menu ul.sub-menus{
@@ -68,7 +78,7 @@
 	width: 100%;
 }
 #menu ul.sub-menus a {
-	color: #001066;
+	color: #000;
 	font-size: 16px;
 }
 #menu li:hover ul.sub-menus {
@@ -76,16 +86,17 @@
 }
 #menu ul.sub-menus a:hover{
 	background: #75B3FF;
-	color: #001066;
+	color: #000;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
 	#menu {
         position:relative;
     }
 	#menu ul {
         background:#FFFFFF;
-        position:absolute;top:100%;
+        position:absolute;
+		top: 40px;
         right:0;
         left:0;
         z-index:3;
@@ -115,7 +126,7 @@
         z-index:4;
     }
 	#menu input:checked + label {
-        color:#001066;
+        color:#000;
     }
 	#menu input:checked + label:before {
         content:"\00d7";
