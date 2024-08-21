@@ -13,37 +13,46 @@
         <Div class="icono">
             <img class="imagen" src="./Private/img/moneda.png" alt="moneda">
         </Div>
+    <Div class="container-titulos">
         <Div class="titulo-modal">
-            <h2>Configurar una nueva tarifa</h2>
+            <h3>Configurar una nueva tarifa</h3>
         </Div>
         <Div class="subtitulo-modal">
             <h3>Completa los datos de la tarifa.</h3>
         </Div>
+    </Div>
         <div class="container-campos">
-            <label class="label" for="franja">Franja</label>
+            <Div class="input-container"><label class="label" for="franja">Franja</label>
             <select class="inputs" name="Franja" id="franja" placeholder="Seleccionar..">
                 <option value="Seleccionar">Seleccionar..</option>
                 <option value="franja-1">Semana-Tarde</option>
                 <option value="franja-2">Semana-Noche</option>
                 <option value="franja-3">Finde-Tarde</option>
                 <option value="franja-4">Finde-Noche</option>
-            </select>
-            <label class="label" for="fecha">Fecha</label>
-            <input class="inputs" type="date" id="fecha">
-            <label class="label" for="tipo-vehiculo">Tipo Vehiculo</label>
-            <select class="inputs" name="Tipo Vehiculo" id="tipo-vehiculo" placeholder="Seleccionar..">
-                <option value="Seleccionar">Seleccionar..</option>
-                <option value="Camion">Camion</option>
-                <option value="Auto">Auto</option>
-                <option value="Camioneta">Camioneta</option>
-                <option value="Moto">Moto</option>
-            </select>
-            <label class="label" for="monto">Monto</label>
-            <input class="inputs" type="number" placeholder="$500" id="monto">
+            </select></Div>
+            <div class="input-container">
+                <label class="label" for="fecha">Fecha</label>
+                <input class="inputs" type="date" id="fecha">
+            </div>                
+            <div class="input-container">
+                <label class="label" for="tipo-vehiculo">Tipo Vehiculo</label>        
+                <select class="inputs" name="Tipo Vehiculo" id="tipo-vehiculo" placeholder="Seleccionar..">
+                    <option value="Seleccionar">Seleccionar..</option>
+                    <option value="Camion">Camion</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Camioneta">Camioneta</option>
+                    <option value="Moto">Moto</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label class="label" for="monto">Monto</label>
+                <input class="inputs" type="number" placeholder="$500" id="monto">
+            </div>
         </div>
         <div class="container-buttons">
-            <button class="buton-1">Guardar</button>
             <button class="buton-2">Cancelar</button>
+            <button class="buton-1">Guardar</button>
+            
         </div>
     </Div>
 </body>
