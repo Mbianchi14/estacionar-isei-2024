@@ -1,8 +1,13 @@
-.nav-title{
-	color: #001ec7;
-	font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
-.sub-title-nav{
+
+.title-nav{
 	font-weight: bold;
 }
 
@@ -26,6 +31,11 @@
 	display: inline-block;
 	position: relative;
 }
+#menu li.dotted-line {
+    border-bottom: 2px dashed #000;
+    height: 5px;
+    margin: 0 20px;
+}
 #menu a {
 	display: block;
 	line-height: 33px;
@@ -34,6 +44,10 @@
 	color: #000;
 	font-size: 16px;
 }
+.cerrar-sesion{
+    color: blue !important;
+    margin: 20px 0px;
+}
 #menu a.dropdown-arrow:after {
 	content: "\25BE";
 	margin-left: 5px;
@@ -41,6 +55,9 @@
 #menu li a:hover {
 	color: #000;
 	background: #F2F2F2;
+}
+#menu li a img{
+	width: 25px;
 }
 #menu input {
 	display: none;
@@ -53,15 +70,18 @@
 }
 #menu label {
 	display: none;
-	line-height: 33px;
+	line-height: 40px;
 	text-align: center;
 	position: absolute;
 	left: 35px;
+	color: rgb(5, 5, 139);
+
 }
 #menu label:before {
 	font-size: 1.6em;
-	color: #000;
+	color: rgb(5, 5, 139);
 	content: "\2261"; 
+	margin-right: 10px;
 }
 #menu ul.sub-menus{
 	height: auto;
