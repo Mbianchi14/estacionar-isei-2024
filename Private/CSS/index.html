@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Disponibilidad de Cocheras</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">LOGO</div>
+        <button class="menu-btn">☰</button>
+    </div>
+    <div class="menu">
+        <a href="#">Opción 1</a>
+        <a href="#">Opción 2</a>
+        <a href="#">Opción 3</a>
+    </div>
+    <h1>GESTION DE DISPONIBILIDAD DE COCHERAS</h1>
+    <div class="container">
+        <div class="header-row">
+            <h2>TIPO DE COCHERA</h2>
+            <h2>ESTADO</h2>
+        </div>
+        <ul class="parking-list">
+            <li class="parking-item">
+                <span>Auto</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <li class="parking-item">
+                <span>Motos</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <li class="parking-item">
+                <span>Camionetas</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <li class="parking-item">
+                <span>Camionetas 4x4</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <li class="parking-item">
+                <span>Utilitarios</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <li class="parking-item">
+                <span>Bicicletas</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <li class="parking-item">
+                <span>Camión</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+            <li class="parking-item">
+                <span>Smart</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            var menu = document.querySelector('.menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
