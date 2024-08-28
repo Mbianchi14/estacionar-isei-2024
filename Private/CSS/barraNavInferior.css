@@ -1,47 +1,198 @@
 *{
     margin: 0;
     padding: 0;
-
 }
-
 
 body{
-    background-color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
-.contenedorNav{
+
+/* Estilos generales para pantallas grandes */
+.contenedorNav {
     background-color: #ffff;
     width: 420px;
     height: auto;
     display: flex;
-
+    position: fixed; /* Asegura que el contenedor esté fijo en la parte inferior */
+    bottom: 0; /* Ajusta el contenedor al fondo de la pantalla */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    width: 100%; /* Asegura que se ocupe la totalidad de la pantalla*/
 }
+
 .contenidoNavInferior { 
     display: flex;
     flex-direction: row;
-    align-content: stretch;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: center; /* Centra los íconos verticalmente */
+    justify-content: space-around; /* Distribuye los íconos uniformemente */
+    width: 100%; /* Asegura que ocupe el ancho completo del contenedor */
+    padding: 10px 0; /* Espaciado vertical para la barra */
+    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
 }
 
 .contenidoNavInferior li { 
     list-style: none;
-
 }
 
-.contenidoNavInferior li a{ 
+.contenidoNavInferior li a { 
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 15px;
+    margin: 0 10px; /* Ajusta el margen horizontal para un buen espaciado */
     text-decoration: none;
     color: #000;
-    list-style: none;
+    cursor: pointer;
 }
 
-.IconoNavInferior{ 
-    width: 25px;
+.IconoNavInferior { 
+    width: 25px; /* Tamaño del ícono */
     height: 20px;
     margin-bottom: 5px;
 }
 
+/* Estilo para las ventanas */
+.ventana {
+    position: fixed;
+    bottom: 50px; /* Ajusta para que no tape la barra de navegación */
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #f0f0f0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.ventana.active {
+    transform: translateY(0);
+}
+
+.titulo-ventana{
+    font-weight: 600;
+    color: black;
+    margin: 20px;
+}
+/* Estilo general para el formulario */
+.filtros-form {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    margin: 20px;
+}
+
+/* Estilo para cada etiqueta */
+.filtro-label {
+    display: flex;
+    align-items: center; /* Alinea el texto y el checkbox en la misma línea */
+    margin-bottom: 15px; /* Espacio entre los elementos */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el checkbox */
+    justify-content: space-between;
+}
+
+/* Estilo para el texto dentro de la etiqueta */
+.filtro-text {
+    margin-right: 15px; /* Espacio entre el texto y el checkbox */
+}
+
+/* Estilo para los checkboxes */
+.filtro-checkbox {
+    width: 20px; /* Ancho del checkbox */
+    height: 20px; /* Altura del checkbox */
+    border: 2px solid blue; /* Borde azul para el checkbox */
+    accent-color: blue; /* Color azul para el checkmark */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el checkbox */
+}
+
+/* Estilo para el botón de enviar */
+.filtros-submit {
+    width: 100%;
+    align-self: flex-start; /* Alinea el botón al inicio del formulario */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    border: none;
+    background-color: blue; /* Fondo azul para el botón */
+    color: white; /* Texto blanco */
+    font-size: 16px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    margin-top: 20px; /* Espacio encima del botón */
+
+}
+
+.vehiculos-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /* Espacio entre los elementos */
+    align-items: center; /* Alinear los elementos verticalmente */
+    color: black;
+    margin: 20px;
+}
+
+.vehiculos-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vehiculos-text {
+    margin-right: 10px; /* Espacio entre el texto y el checkbox */
+}
+
+
+
+.vehiculos-submit {
+    grid-column: span 2; /* Hacer que el botón ocupe ambas columnas */
+    margin-top: 10px;
+    padding: 10px;
+    justify-self: center; /* Centra el botón dentro de la cuadrícula */
+    width: 100%;
+    align-self: flex-start; /* Alinea el botón al inicio del formulario */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    border: none;
+    background-color: blue; /* Fondo azul para el botón */
+    color: white; /* Texto blanco */
+    font-size: 16px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+
+}
+
+
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 767px) {
+    .contenedorNav {
+        width: 100%; /* Ajusta el ancho al 100% del contenedor */
+        position: fixed; /* Fija la barra en la parte inferior de la pantalla */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffff; /* Fondo blanco para la barra */
+        z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+        display: flex;
+        justify-content: center; /* Centra el contenido dentro de la barra */
+    }
+
+    .contenidoNavInferior {
+        flex-direction: row; /* Asegúrate de que los íconos estén en una fila */
+        align-items: center; /* Centra los íconos verticalmente en la barra */
+        justify-content: space-around; /* Distribuye los íconos uniformemente */
+        width: 100%; /* Ocupa el ancho completo del contenedor */
+        padding: 10px 0; /* Espaciado vertical para la barra */
+        box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+    }
+
+    .contenidoNavInferior li a {
+        margin: 0 10px; /* Ajusta el margen horizontal para un buen espaciado */
+    }
+
+    .IconoNavInferior {
+        width: 20px; /* Reduce el tamaño del ícono */
+        height: 15px; /* Reduce la altura del ícono */
+    }
+}
