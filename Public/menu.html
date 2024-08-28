@@ -7,87 +7,142 @@
     <title>SCRUM 28</title>
 
     <link rel="stylesheet" href="/Public/CSS/nav.css">
+    <link rel="stylesheet" href="/Public/CSS/bootstrap.css">
 </head>
 <body>
-    <header style="display: flex; flex-direction: row;">
-        <img src="/Public/CSS/image/logo-estacionar-rem-bg.png" alt="logo-estacionar" style="width: 70px;">
-        <h3 style="color: rgb(1, 1, 128); font-weight: bold;">Estacionar</h3>
+    <header>
+        <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand  bold color-900" href="#">
+                    <img src="/Public/CSS/image/logo-estacionar-rem-bg.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    Estacionar
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Estacionar</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <h4 class="bold">Gestionar cochera</h4>
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Mis datos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Vehiculos</a></li>
+                                <li><a class="dropdown-item" href="#">Locaciones</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Horarios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Franja 1</a></li>
+                                <li><a class="dropdown-item" href="#">Franja 2</a></li>
+                                <li><a class="dropdown-item" href="#">Franja 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Tarifas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Tarifa 1</a></li>
+                                <li><a class="dropdown-item" href="#">Tarifa 2</a></li>
+                                <li><a class="dropdown-item" href="#">Tarifa 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Promociones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Promociones 1</a></li>
+                                <li><a class="dropdown-item" href="#">Promociones 2</a></li>
+                                <li><a class="dropdown-item" href="#">Promociones 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Gestionar usuarios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Usuario 1</a></li>
+                                <li><a class="dropdown-item" href="#">Usuario 2</a></li>
+                                <li><a class="dropdown-item" href="#">Usuario 3</a></li>
+                                <li><a class="dropdown-item" href="#">Añadir usuario</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Gestionar disponibilidad
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Disponibilidad 1</a></li>
+                                <li><a class="dropdown-item" href="#">Disponibilidad 2</a></li>
+                                <li><a class="dropdown-item" href="#">Disponibilidad 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="dotted-line"></li>
+                        <li class="nav-item"><a class="nav-link" href='#'>
+                            <a><img src="/Public/CSS/image/user.png" class="img-fluid"> Estacionar Ahora!</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Estacionamiento mensual
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Opcion 1</a></li>
+                                <li><a class="dropdown-item" href="#">Opcion 2</a></li>
+                                <li><a class="dropdown-item" href="#">Opcion 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Mi perfil
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Editar</a></li>
+                                <li><a class="dropdown-item" href="#">Ver</a></li>
+                                <li><a class="dropdown-item" href="#">Dar de baja</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/Public/CSS/image/user.png" class="img-fluid">
+                                Acerca de
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Funcionamiento App</a></li>
+                                <li><a class="dropdown-item" href="#">Nosotros</a></li>
+                                <li><a class="dropdown-item" href="#">Iniciativa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href='#'>
+                            <a href="#" class="cerrar-sesion">Cerrar sesion</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                </div>
+            </nav>
     </header>
-    <nav id='menu'>
-        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
-        <ul>
-            <p class="title-nav">Gestionar cochera</p>
-            <li><a class='dropdown-arrow' href='#'> <img src="/Public/CSS/image/user.png"> Mis datos</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Perfil</a></li>
-                    <li><a href='#'>Vehiculos</a></li>
-                    <li><a href='#'>Locaciones</a></li>
-                </ul>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png"> Horarios</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Franja 1</a></li>
-                    <li><a href='#'>Franja 2</a></li>
-                    <li><a href='#'>Franja 3</a></li>
-                </ul>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png"> Tarifas</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Tarifa 1</a></li>
-                    <li><a href='#'>Tarifa 2</a></li>
-                    <li><a href='#'>Tarifa 3</a></li>
-                </ul>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png"> Promociones</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Promociones 1</a></li>
-                    <li><a href='#'>Promociones 2</a></li>
-                    <li><a href='#'>Promociones 3</a></li>
-                </ul>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png"> Gestionar usuarios</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Usuario 1</a></li>
-                    <li><a href='#'>Usuario 2</a></li>
-                    <li><a href='#'>Usuario 3</a></li>
-                    <li><a href='#'>Añadir usuario</a></li>
-                </ul>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png">Gestionar disponibilidad</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Disponibilidad 1</a></li>
-                    <li><a href='#'>Disponibilidad 2</a></li>
-                    <li><a href='#'>Disponibilidad 3</a></li>
-                </ul>
-            </li>
-            <li class="dotted-line"></li>
-            <li><a href='#'> <img src="/Public/CSS/image/user.png"> Estacionar Ahora!</a>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png"> Estacionamiento mensual</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Opcion 1</a></li>
-                    <li><a href='#'>Opcion 2</a></li>
-                    <li><a href='#'>Opcion 3</a></li>
-                </ul>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png"> Mi perfil</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Editar</a></li>
-                    <li><a href='#'>Ver</a></li>
-                    <li><a href='#'>Dar de baja</a></li>
-                </ul>
-            </li>
-            <li><a class='dropdown-arrow' href='#'><img src="/Public/CSS/image/user.png"> Acerca de</a>
-                <ul class='sub-menus'>
-                    <li><a href='#'>Funcionamiento App</a></li>
-                    <li><a href='#'>Nosotros</a></li>
-                    <li><a href='#'>Iniciativa</a></li>
-                </ul>
-            </li>
-            <a href="#" class="cerrar-sesion">Cerrar sesion</a>
-        </ul>
-      </nav>
 
-      <script src="/Public/JS/nav.js"></script>
+    <script src="/Public/JS/bootstrap.js"></script>
 </body>
 </html>
