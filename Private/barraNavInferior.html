@@ -11,30 +11,9 @@
 </head>
 
 <body>
-    <div id="mi_mapa" style="width: 100%; height: 600px;"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <style>
-        .leaflet-control-attribution {
-            display: none !important;
-        }
-        .leaflet-control-logo {
-            display: none !important;
-        }
-    </style>
-    <script>
-        // Inicializar el mapa
-        let map = L.map('mi_mapa').setView([ -32.9522093, -60.6966395], 12);
-
-        // Añadir un tile layer (capa de mosaico)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-    </script>
-
-    <div class="Search-Flotante">
 
 
-    </div>
+  
     <div class="contenedorNav">
         <ul class="contenidoNavInferior">
             <li><a href="#home" data-section="home"><img class="IconoNavInferior" src="IMG/house.svg" alt="Inicio">Inicio</a></li>
