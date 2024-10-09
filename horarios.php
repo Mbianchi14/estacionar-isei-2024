@@ -1,11 +1,6 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="./CSS/nav.css">
-<link rel="stylesheet" href="./assets/css/bootstrap.css">
-<link rel="stylesheet" href="./assets/css/main.css">
-
-<script src="./assets/js/bootstrap.bundle.min.js"></script>
 <?php
-for ($i = 0; $i < 10; $i++) { # code... 
+include_once "head.php";
+/* for ($i = 0; $i < 10; $i++) { # code... 
     $franjas[$i]['estado'] = rand(0, 1);
     $franjas[$i]['L'] = rand(0, 1);
     $franjas[$i]['M'] = rand(0, 1);
@@ -15,8 +10,17 @@ for ($i = 0; $i < 10; $i++) { # code...
     $franjas[$i]['S'] = rand(0, 1);
     $franjas[$i]['D'] = rand(0, 1);
     $franjas[$i]['F'] = rand(0, 1);
+    } */
+$consulta = "SELECT * FROM franja_horario";
+$resultado = $pdo->query($consulta);
+/* echo "<pre>";
+var_dump($resultado);
+echo "</pre>"; */
+while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
+    $franjas[] = $fila;
 }
 ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <nav class="navbar bg-body-tertiary fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center bold text-azul-900" href="#">
@@ -71,7 +75,7 @@ for ($i = 0; $i < 10; $i++) { # code...
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="./assets/img/user.png" style="width: 50px;">
-                        Promociones
+                        franjaciones
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Promociones 1</a></li>
@@ -151,7 +155,7 @@ for ($i = 0; $i < 10; $i++) { # code...
         <div class="d-flex justify-content-center col-12 py-5">
             <div class="col-12 d-flex justify-content-between align-items-center text-secondary">
                 <div style="font-size:30px;font-weight:600;">CONFIGURACION DE HORARIOS</div>
-                <button class="btn py-2 px-4 bg-azul-500 text-white" style="font-size:30px; font-weight: 600;">
+                <button class="btn py-2 px-4 bg-azul-500 text-white btn-primary" style="font-size:30px; font-weight: 600;">
                     + Add
                 </button>
             </div>
@@ -173,9 +177,9 @@ for ($i = 0; $i < 10; $i++) { # code...
                 <div class="bg-azul-200 p-5 radio-lg col-11">
                     <div class="col-12 d-flex justify-content-left ">
                         <div class="col-7">
-                            <span style="font-size:20px;">Día de Semana</span>
-                            <p style="font-size:30px;" class="my-1">De 10hs a 22hs</p>
-                            <p style="font-size:30px;" class="my-1">Del 15/04/24 al 16/08/24</p>
+                            <span style="font-size:20px;"><?= $franja['nombre'] . " " . $i  ?></span>
+                            <p style="font-size:30px;" class="my-1">De <?= date("H:i", strtotime($franja['hora_inicio'])) ?>hs a <?= date("H:i", strtotime($franja['hora_fin'])) ?>hs</p>
+                            <p style="font-size:30px;" class="my-1">Del <?= date("d/m/Y", strtotime($franja['fecha_inicio'])) ?> al <?= date("d/m/Y", strtotime($franja['fecha_fin'])) ?></p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center col-5">
                             <div class="col-8 radio-small d-flex justify-content-center p-1 <?= $franja['estado'] == 1 ? 'alert-success' : 'alert-danger'; ?>" style="font-size:30px;font-weight: bold;"><?= $franja['estado'] == 1 ? 'Activa' : 'Inactiva'; ?></div>
@@ -183,14 +187,14 @@ for ($i = 0; $i < 10; $i++) { # code...
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-between pt-4">
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['L'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">L</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['M'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">M</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['X'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">X</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['J'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">J</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['V'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">V</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['S'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">S</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['D'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">D</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['F'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">F</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['lun'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">L</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['mar'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">M</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['mir'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">X</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['jue'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">J</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['vie'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">V</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['sab'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">S</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['dom'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">D</div>
+                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['fer'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">F</div>
                     </div>
                 </div>
             </div>
