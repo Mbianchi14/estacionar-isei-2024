@@ -1,74 +1,41 @@
 <?php 
 /**
- * Clase Modelo
+ * Clase Modelo base para interactuar con la base de datos
  */
 class Model
 {
-	protected $table; //Tabla de la base de datos
-	protected $primaryKey = "id"; //Primary Key
+    protected $table; // Tabla de la base de datos
+    protected $primaryKey = "id"; // Clave primaria
 
+    // Buscar un registro por ID
+    public static function findId($id)
+    {
+        $model = new static();
+        $sql = "SELECT * FROM " . $model->table . " WHERE " . $model->primaryKey . " = :id";
+        $params = ["id" => $id];
+        $result = DataBase::getRecord($sql, $params);
 
-	public static function dump_var($var){
-		echo '<pre>';
-		var_dump($var);
-		echo '</pre>';
-	}
+        // Asignar los valores devueltos al modelo si hay un resultado
+        if ($result) {
+            foreach ($result as $key => $value) {
+                $model->$key = $value;
+            }
+        }
 
-	public static function findId($id){
-		$model = new static();
-		$sql = "SELECT * from ".$model->table." where ".$model->primaryKey." = :id";
-		$params = ["id" => $id];
-		$result = DataBase::getRecord($sql, $params);
+        return $model;
+    }
 
-		// if ($result) {
-		// 	foreach ($result as $key => $value) {
-		// 		$model->$key = $value;
-		// 	}
-		// }else{
-		// 	$model = $result;
-		// }
-		$model = $result; #borrar esta linea y descomentar arriba
-		return $model;
-	}
+    // Obtener todos los registros de la tabla
+    public static function getAll()
+    {
+        $model = new static();
+        $sql = "SELECT * FROM " . $model->table;
+        return DataBase::getRecords($sql);
+    }
 
-
-	public static function getAll($config = null){
-		$model = new static();
-		$sql = "SELECT * from ".$model->table;
-		$result = DataBase::getRecords($sql);
-		return $result;
-	}
-
-	public static function getColumnsNames($table){
-		 $result = DataBase::getColumnsNames($table);
-		 return $result;
-	}
-
-	public static function lastId($table, $nombre_tabla_de_Id){
-		$model = new static();
-
-		$operacion['status'] = true;
-		$operacion['resultado'] = '';
-
-
-		$sql = "SELECT MAX($nombre_tabla_de_Id) as lastId FROM $table;";
-		$resultado = DataBase::getRecord($sql);
-
-		// var_dump($resultado);
-		// echo $resultado->lastId;
-
-		if (isset($resultado->lastId)) {
-			if (is_numeric($resultado->lastId)) {
-				$operacion['resultado'] = $resultado->lastId;
-				$operacion['status'] = true;
-			}else{
-				$operacion['status'] = false;
-			}
-		}else{
-			$operacion['status'] = false;
-		}
-
-		return $operacion;
-	
-	}
+    // Obtener nombres de las columnas de una tabla
+    public static function getColumnsNames($table)
+    {
+        return DataBase::getColumnsNames($table);
+    }
 }

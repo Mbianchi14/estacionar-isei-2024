@@ -1,85 +1,72 @@
 <?php 
 /**
- * Clase Iniciadora bootstrapping
+ * Clase Iniciadora para el manejo de rutas y controladores
  */
 class App
 {
-	protected $controller 	= "app\\controllers\\"."HomeController";
-	protected $method 		= "actionIndex";
-	protected $params 		= [];
+    protected $controller = "app\\controllers\\"."HomeController";
+    protected $method = "actionIndex";
+    protected $params = [];
 
-	public function __construct()
-	{
-		$url = $this->parseUrl();
-		
-		// var_dump($url);
+    public function __construct()
+    {
+        $url = $this->parseUrl();
 
-		// echo $this->controller."<br>";
-		if (isset($url[0])) {
-			$controllerName = ucfirst(strtolower($url[0]))."Controller";
-		}else{
-			$controllerName = ucfirst(strtolower('Home'))."Controller";
-		}
-		
+        $controllerName = isset($url[0]) ? ucfirst(strtolower($url[0])) . "Controller" : $this->controller;
+        $controllerPath = APP_PATH . "controllers/" . $controllerName . ".php";
+        
+        // Verificar si el controlador existe
+        if ($this->controllerExists($controllerPath)) {
+            $this->controller = APP_PATH . "controllers/" . $controllerName;
+            unset($url[0]);
+        } else {
+            $this->handleControllerNotFound($url);
+        }
 
-		// echo APP_PATH."controllers\\".$controllerName.".php <------------------- <br>";
+        $controller = $this->getControllerClass($this->controller);
 
-		if (file_exists(APP_PATH."controllers/".$controllerName.".php")) {
+        $this->controller = new $controller;
 
-			$this->controller = APP_PATH."controllers/".$controllerName;
-			unset($url[0]);
-			$noexisteControlador = false;
-			// echo "existe controlador <br>";
-		}else{
-			// echo "no existe controlador <br>";
-			$noexisteControlador = true;
-			$tempMethod = $url[0];
-			// unset($url[0]);
-		}
+        // Manejo de métodos
+        $methodName = $this->getMethodFromUrl($url);
+        $this->method = method_exists($this->controller, $methodName) ? $methodName : 'action404';
 
-		// echo $this->controller;
-		// // echo dirname(__DIR__).'\\'.$this->controller.".php <br>";
-		// // require dirname(__DIR__).'\\'.$this->controller.".php";
-		// require $this->controller.".php";
+        $this->params = $url ? array_values($url) : [];
+        
+        // Llama al método del controlador con los parámetros
+        call_user_func_array([$this->controller, $this->method], $this->params);
+    }
 
-		$tempController =  str_replace('/','\\',$this->controller);
+    // Parsear la URL
+    public function parseUrl()
+    {
+        return isset($_GET['url']) ? explode("/", filter_var(rtrim($_GET["url"], "/"), FILTER_SANITIZE_URL)) : [];
+    }
 
-		// echo $tempController;
-		$this->controller = new  $tempController;
-		
-		if (isset($url[1])) {
-			$methodName = "action".ucfirst(strtolower($url[1]));
-			// echo "$methodName <br>";
-			if (method_exists($this->controller, $methodName)) {
-				$this->method = $methodName;
-				unset($url[1]);
-			}else{
-				$this->method = 'action404';
-				unset($url[1]);
-			}
-		}else{
-			if (isset($tempMethod)) {
-				$methodName = "action".ucfirst(strtolower($tempMethod));
-				if (method_exists($this->controller, $methodName)) {
-					$this->method = $methodName;
-					unset($url[0]);
-				}else{
-					$this->method = 'action404';
-				}
-			}
-		}
+    // Verificar si el controlador existe
+    protected function controllerExists($path)
+    {
+        return file_exists($path);
+    }
 
-		/*Si la URL sigue teniendo valores, los agrega a params, sino paramas toma el valor por defecto, o sea nada*/
-		$this->params = $url ? array_values($url) : $this->params;
+    // Obtener el nombre del controlador con el namespace adecuado
+    protected function getControllerClass($controllerPath)
+    {
+        return str_replace('/', '\\', $controllerPath);
+    }
 
-		/*llama al metodo del controlador y pasa los parmetros al metodo*/
-		call_user_func_array([$this->controller, $this->method], $this->params);
+    // Manejar cuando el controlador no existe
+    protected function handleControllerNotFound(&$url)
+    {
+        if (isset($url[0])) {
+            $this->method = 'action404';
+            unset($url[0]);
+        }
+    }
 
-	}
-
-	public function parseUrl(){
-		if (isset($_GET['url'])) {
-			return explode("/",filter_var(rtrim($_GET["url"],"/"),FILTER_SANITIZE_URL));
-		}
-	}
+    // Obtener el método desde la URL
+    protected function getMethodFromUrl(&$url)
+    {
+        return isset($url[1]) ? "action" . ucfirst(strtolower($url[1])) : $this->method;
+    }
 }

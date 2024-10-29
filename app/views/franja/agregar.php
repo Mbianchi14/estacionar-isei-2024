@@ -1,6 +1,3 @@
-<?php
-include_once "head.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +15,7 @@ include_once "head.php";
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-header border-bottom-0 d-flex flex-column">
                     <Div class="w-100">
-                        <img class="float-start" src="./assets/img/moneda.png" height="30px" alt="moneda">
+                        <img class="float-start" src="./public/img/moneda.png" height="30px" alt="moneda">
                     </Div>
                     <Div class="w-100">
                         <h3 class="fs-5" style="text-align: start;">Configurar una nueva franja horaria</h3>

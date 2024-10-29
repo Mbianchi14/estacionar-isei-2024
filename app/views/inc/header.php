@@ -1,30 +1,7 @@
-<?php
-include_once "head.php";
-/* for ($i = 0; $i < 10; $i++) { # code... 
-    $franjas[$i]['estado'] = rand(0, 1);
-    $franjas[$i]['L'] = rand(0, 1);
-    $franjas[$i]['M'] = rand(0, 1);
-    $franjas[$i]['X'] = rand(0, 1);
-    $franjas[$i]['J'] = rand(0, 1);
-    $franjas[$i]['V'] = rand(0, 1);
-    $franjas[$i]['S'] = rand(0, 1);
-    $franjas[$i]['D'] = rand(0, 1);
-    $franjas[$i]['F'] = rand(0, 1);
-    } */
-$consulta = "SELECT * FROM franja_horario";
-$resultado = $pdo->query($consulta);
-/* echo "<pre>";
-var_dump($resultado);
-echo "</pre>"; */
-while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
-    $franjas[] = $fila;
-}
-?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <nav class="navbar bg-body-tertiary fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center bold text-azul-900" href="#">
-            <img src="assets/img/logo-estacionar-rem-bg.png" alt="Logo" width="80" class="d-inline-block align-text-top">
+            <img src="/estacionar-isei-2024/public/img/logo-estacionar-rem-bg.png" alt="Logo" width="80" class="d-inline-block align-text-top">
             Estacionar
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -41,7 +18,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Mis datos
                     </a>
                     <ul class="dropdown-menu">
@@ -52,7 +29,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Horarios
                     </a>
                     <ul class="dropdown-menu">
@@ -63,7 +40,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Tarifas
                     </a>
                     <ul class="dropdown-menu">
@@ -74,7 +51,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         franjaciones
                     </a>
                     <ul class="dropdown-menu">
@@ -85,7 +62,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Gestionar usuarios
                     </a>
                     <ul class="dropdown-menu">
@@ -97,7 +74,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Gestionar disponibilidad
                     </a>
                     <ul class="dropdown-menu">
@@ -108,11 +85,11 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="dotted-line"></li>
                 <li class="nav-item"><a class="nav-link" href='#'>
-                        <a><img src="./assets/img/user.png" style="width: 50px;">Estacionar Ahora!</a>
+                        <a><img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">Estacionar Ahora!</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Estacionamiento mensual
                     </a>
                     <ul class="dropdown-menu">
@@ -123,7 +100,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Mi perfil
                     </a>
                     <ul class="dropdown-menu">
@@ -134,7 +111,7 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/user.png" style="width: 50px;">
+                        <img src="/estacionar-isei-2024/public/img/user.png" style="width: 50px;">
                         Acerca de
                     </a>
                     <ul class="dropdown-menu">
@@ -150,56 +127,3 @@ while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
         </div>
     </div>
 </nav>
-<div class="d-flex justify-content-center pt-5 bg-body-tertiary sticky-top">
-    <div class="navbar col-11 d-flex">
-        <div class="d-flex justify-content-center col-12 py-5">
-            <div class="col-12 d-flex justify-content-between align-items-center text-secondary">
-                <div style="font-size:30px;font-weight:600;">CONFIGURACION DE HORARIOS</div>
-                <button class="btn py-2 px-4 bg-azul-500 text-white btn-primary" style="font-size:30px; font-weight: 600;">
-                    + Add
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="bg-body-tertiary col-12">
-    <?php
-
-
-    foreach ($franjas as $i => $franja) {
-        # code...
-    ?>
-
-        <div class="bg-body-tertiary col-12">
-            <div class="d-flex justify-content-center  mt-5">
-                <div class="bg-azul-200 p-5 radio-lg col-11">
-                    <div class="col-12 d-flex justify-content-left ">
-                        <div class="col-7">
-                            <span style="font-size:20px;"><?= $franja['nombre'] . " " . $i  ?></span>
-                            <p style="font-size:30px;" class="my-1">De <?= date("H:i", strtotime($franja['hora_inicio'])) ?>hs a <?= date("H:i", strtotime($franja['hora_fin'])) ?>hs</p>
-                            <p style="font-size:30px;" class="my-1">Del <?= date("d/m/Y", strtotime($franja['fecha_inicio'])) ?> al <?= date("d/m/Y", strtotime($franja['fecha_fin'])) ?></p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center col-5">
-                            <div class="col-8 radio-small d-flex justify-content-center p-1 <?= $franja['estado'] == 1 ? 'alert-success' : 'alert-danger'; ?>" style="font-size:30px;font-weight: bold;"><?= $franja['estado'] == 1 ? 'Activa' : 'Inactiva'; ?></div>
-                            <img class="col-4 d-flex justify-content-center" src="./assets/img/flechitaGris.png" alt=">">
-                        </div>
-                    </div>
-                    <div class="col-12 d-flex justify-content-between pt-4">
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['lun'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">L</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['mar'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">M</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['mir'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">X</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['jue'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">J</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['vie'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">V</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['sab'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">S</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['dom'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">D</div>
-                        <div class="d-flex justify-content-center align-items-center radio-small p-1 font-weight-bold <?= $franja['fer'] == 1 ? 'text-white bg-azul-900' : 'text-azul-900 bg-white'; ?>" style="font-size:30px;width:2em;height:2em;">F</div>
-                    </div>
-                </div>
-            </div>
-        <?php
-    }
-
-        ?>
-        </div>

@@ -1,27 +1,40 @@
 <?php 
 /**
- * 
+ * Clase encargada de la carga automática de clases
  */
 class Autoloader
 {
-	
-	public function __construct()
-	{
-		$this->loadAppClasses();
-	}
+    public function __construct()
+    {
+        $this->loadAppClasses();
+    }
 
-	private function loadAppClasses(){
+    /**
+     * Registra la función de autoload para cargar clases automáticamente
+     */
+    private function loadAppClasses()
+    {
+        spl_autoload_register(function ($nombreClase) {
+            $clasesParaCargaAutomatica = ['App', 'Controller', 'Model', 'Response', 'DataBase'];
+            $cargaAutomatica = false;
 
-		function cargarClase($nombreClase){
-			// echo $nombreClase."<br>";
-			require_once str_replace('\\','/',$nombreClase).".php";
+            foreach ($clasesParaCargaAutomatica as $clase) {
+                if (strstr($nombreClase, $clase)) {
+                    $cargaAutomatica = true;
+                    break; // Salir del bucle cuando se encuentre una coincidencia
+                }
+            }
 
-		}
-		spl_autoload_register('cargarClase', TRUE , FALSE );
-
-	}
-
-
+            // Si la clase cumple con los criterios, se carga
+            if ($cargaAutomatica) {
+                require_once str_replace('\\', '/', $nombreClase).".php";
+            } else {
+                // Si no, lanzamos una excepción clara
+                throw new Exception("No se pudo cargar la clase: $nombreClase");
+            }
+        }, true, false);
+    }
 }
 
+// Instanciamos el Autoloader
 new Autoloader();
