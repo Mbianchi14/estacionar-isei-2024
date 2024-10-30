@@ -1,3 +1,5 @@
+<?= $head ?>
+<?= $header ?>
 <?php
 for ($i = 0; $i < 10; $i++) { # code... 
     $franjas[$i]['hora_inicio'] = "09:00:00";
@@ -15,7 +17,6 @@ for ($i = 0; $i < 10; $i++) { # code...
     $franjas[$i]['dom'] = rand(0, 1);
     $franjas[$i]['fer'] = rand(0, 1);
 }
-var_dump($mensaje);
 /* $consulta = "SELECT * FROM franja_horario";
 $resultado = $pdo->query($consulta); */
 /* echo "<pre>";
@@ -25,13 +26,6 @@ echo "</pre>"; */
     $franjas[] = $fila;
 } */
 ?>
-<link href="/estacionar-isei-2024/public/font-awesome5/css/all.min.css" media="screen" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="/estacionar-isei-2024/public/css/bootstrap.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/estacionar-isei-2024/public/css/main.css" media="all" />
-
-
-<script type="text/javascript" src="/estacionar-isei-2024/public/js/jquery.min.js"></script>
-<script type="text/javascript" src="/estacionar-isei-2024/public/js/bootstrap.bundle.js"></script>
 
 <div class="d-flex justify-content-center pt-5 bg-body-tertiary sticky-top">
     <div class="navbar col-11 d-flex">
