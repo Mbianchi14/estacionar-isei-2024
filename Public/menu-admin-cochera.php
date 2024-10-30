@@ -1,3 +1,120 @@
+<?php
+
+$tituloMenu = '';
+
+$rolSession='';
+
+$datos = '';
+$franja = '';
+$tarifa = '';
+$promociones= '';
+$cochera = '';
+$gestionUser = '';
+$perfil = '';
+
+
+$classDatos = '';
+$classFranja = '';
+$classTarifa = '';
+$classPromociones= '';
+$classCochera = '';
+$classGestionUser = '';
+$classPerfil = '';
+if (isset($_SESSION)) {
+    $datos=$_SESSION['datos'];
+    $franja=$_SESSION['franja'];
+    $tarifa=$_SESSION['tarifa'];
+    $promociones=$_SESSION['promociones'];
+    $cochera=$_SESSION['cochera'];
+    $gestionUser=$_SESSION['gestionUser'];
+    $perfil=$_SESSION['perfil'];
+}else{
+    $datos=1;
+    $franja=1;
+    $tarifa=1;
+    $promociones=1;
+    $cochera=1;
+    $gestionUser=1;
+    $perfil=1;
+}
+
+    if (isset($_SESSION)) {
+    $rolSession=$_SESSION['rol'];
+    }else{
+    $rolSession=6;   
+    }
+
+    if($rol===1){
+        //1=root          
+    }
+    if($rol===2){
+        //2=superAdmin
+        $tituloMenu = 'SuperAdmin'; 
+    }
+    if($rol===3){
+        //3=Admin
+        $tituloMenu = 'Administrador'/*.$_SESSION['nombre']*/;
+    }
+    if($rol===4){
+        //5=operador
+        $tituloMenu = 'Operador: '/*.$_SESSION['nombre']*/;
+    }
+    if($rol===5){
+       //4=usuario 
+        $tituloMenu = 'Usuario: '/*.$_SESSION['nombre']*/;
+    }
+    if($rol===6){
+        //6=guest
+        $tituloMenu = 'Invitado';
+    }
+
+    
+if ($datos===1) {
+    $disable=true;
+    $classDatos = $disable ? 'disable' : '';
+} else {
+    $classDatos =  '';
+}
+if ($franja===1) {
+    $disable=true;
+    $classFranja = $disable ? 'disable' : '';
+} else {
+    $classFranja =  '';
+}
+if ($tarifa===1) {
+    $disable=true;
+    $classTarifa = $disable ? 'disable' : '';
+}else {
+    $classTarifa =  '';
+}
+if ($promociones===1) {
+    $disable=true;
+    $classPromociones = $disable ? 'disable' : '';
+}else {
+    $classPromociones =  '';
+}
+if ($cochera===1) {
+    $disable=true;
+    $classCochera = $disable ? 'disable' : '';
+}else {
+    $classCochera =  '';
+}
+if ($gestionUser===1) {
+    $disable=true;
+    $classGestionUser = $disable ? 'disable' : '';
+}else {
+    $classGestionUser =  '';
+}
+if ($perfil===1) {
+    $disable=false;
+    $classPerfil = $disable ? 'disable' : '';
+}else {
+    $classPerfil =  '';
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +123,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCRUM 28</title>
 
-    <link rel="stylesheet" href="./CSS/nav.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./Librerias/bootstrap/css/bootstrap.css">
 
 </head>
@@ -28,10 +145,11 @@
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <h4 class="bold">Gestionar cochera</h4>
+                    <h4 class="bold"><?php echo $tituloMenu; ?></h4>
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?php echo $classDatos; ?>" href="#" role="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/Public/CSS/image/user.png" style="width: 50px;">
                                 Mis datos
                             </a>
@@ -42,7 +160,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?php echo $classFranja; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/Public/CSS/image/user.png" style="width: 50px;">
                                 Horarios
                             </a>
@@ -53,7 +171,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?php echo $classTarifa; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/Public/CSS/image/user.png" style="width: 50px;">
                                 Tarifas
                             </a>
@@ -64,7 +182,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?php echo $classPromociones; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/Public/CSS/image/user.png" style="width: 50px;">
                                 Promociones
                             </a>
@@ -75,7 +193,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?php echo $classGestionUser; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/Public/CSS/image/user.png" style="width: 50px;">
                                 Gestionar usuarios
                             </a>
@@ -87,7 +205,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?php echo $classCochera; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/Public/CSS/image/user.png" style="width: 50px;">
                                 Gestionar disponibilidad
                             </a>
@@ -113,7 +231,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle <?php echo $classPerfil; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/Public/CSS/image/user.png" style="width: 50px;">
                                 Mi perfil
                             </a>
