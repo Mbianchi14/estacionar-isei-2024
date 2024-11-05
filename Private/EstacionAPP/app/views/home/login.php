@@ -36,9 +36,9 @@
             </div>
             <div class="policy-terms">
                 <p>
-                    By clicking continue, you agree to our
-                    <a class="policy" href="https://">Terms of Service</a> and
-                    <a class="policy" href="https://">Privacy Policy</a>.
+                    Al hacer click en continuar, estas aceptando nuestros
+                    <a class="policy" href="https://">terminos de servicio</a> y
+                    <a class="policy" href="https://">politicas de privacidad</a>.
                 </p>
             </div>
         </form>
