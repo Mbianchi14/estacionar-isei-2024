@@ -26,6 +26,7 @@ class HomeController extends Controller
 	public function actionLogin()
 	{
 		$mail = '';
+		$pass = '';
 		$error = [];
 		if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_POST['send'])) {
 			$flag = false;
@@ -44,16 +45,16 @@ class HomeController extends Controller
 					$mail = $ValMail['campo2'];
 				}
 			}
-		// 	if ($flag === false) {
-		// 		if ($this->authenticate($mail, $pass)) {
-		// 			SessionController::start($mail);
-		// 			header('location: inicio');
-		// 			exit;
-		// 		} else {
-		// 			$error[] = 'credenciales incorrectas';
-		// 		}
-		// 	}
-		// }
+			if ($flag === false) {
+				if ($this->authenticate($mail, $pass)) {
+					SessionController::start($mail);
+					header('location: inicio');
+					exit;
+				} else {
+					$error[] = 'credenciales incorrectas';
+				}
+			}
+		}
 
 		$head = SiteController::head();
 		$nav = SiteController::nav();
@@ -62,6 +63,7 @@ class HomeController extends Controller
 			"head" => $head,
 			"nav" => $nav,
 			"mail" => $mail,
+			"pass" => $pass,
 			"error" => $error
 		]);
 	}
