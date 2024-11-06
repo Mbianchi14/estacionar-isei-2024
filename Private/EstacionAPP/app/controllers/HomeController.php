@@ -1,5 +1,6 @@
 <?php
 namespace app\controllers;
+use app\models\UserModel;
 use \Controller;
 use \Response;
 use \DataBase;
@@ -25,6 +26,7 @@ class HomeController extends Controller
 	public function actionLogin()
 	{
 		$mail = '';
+		$pass = '';
 		$error = [];
 		if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_POST['send'])) {
 			$flag = false;
@@ -32,7 +34,9 @@ class HomeController extends Controller
 			$ValMail = $val->ValMail();
 			if ($ValMail['error']) {
 				$flag = true;
-				$error[] = $ValMail['msg'];
+				if (!in_array($ValMail['msg'], $error)) {
+					$error[] = $ValMail['msg'];
+				}
 			} else {
 				if (!filter_var($ValMail['campo2'], FILTER_VALIDATE_EMAIL)) {
 					$flag = true;
@@ -41,11 +45,15 @@ class HomeController extends Controller
 					$mail = $ValMail['campo2'];
 				}
 			}
-
-			// if ($flag === false) {
-			// 	$mail === $mail_copy;
-			// VALIDACION PARA COMPARARLO CON LA DB
-			// }
+			if ($flag === false) {
+				if ($this->authenticate($mail, $pass)) {
+					SessionController::start($mail);
+					header('location: inicio');
+					exit;
+				} else {
+					$error[] = 'credenciales incorrectas';
+				}
+			}
 		}
 
 		$head = SiteController::head();
@@ -55,8 +63,19 @@ class HomeController extends Controller
 			"head" => $head,
 			"nav" => $nav,
 			"mail" => $mail,
+			"pass" => $pass,
 			"error" => $error
 		]);
+	}
+
+	private function authenticate($mail, $pass)
+	{
+		$mail = UserModel::FindMail($mail);
+		if ($mail && password_verify($pass, $mail->Pass)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public function action404()
