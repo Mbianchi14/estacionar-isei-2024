@@ -7,28 +7,38 @@ use \Model;
 
 class FranjaModel extends Model
 {
-    protected $table = "franjas";
+    protected $table = "franjas_horarias";
     protected $primaryKey = "idFranja";
 
 
     public static function agregar($franjaData)
     {
-        /* $model = new static();
+        $model = new static();
 
         $operacion['status'] = true;
         $operacion['msg'] = '';
 
-        $nombre        = $franjaData['nombre'];
-        $provincia = $franjaData['provincia'];
-        $localidad     = $franjaData['localidad'];
-        $direccion        = $franjaData['direccion'];
-        $telefono     = $franjaData['telefono'];
+        $nombre     = $franjaData['nombre'];
+        $horaDesde  = $franjaData['horaDesde'];
+        $horaHasta  = $franjaData['horaHasta'];
+        $fechaDesde = $franjaData['fechaDesde'];
+        $fechaHasta = $franjaData['fechaHasta'];
+        $estado     = $franjaData['estado'];
+        $lun        = $franjaData['lun'];
+        $mar        = $franjaData['mar'];
+        $mie        = $franjaData['mie'];
+        $jue        = $franjaData['jue'];
+        $vie        = $franjaData['vie'];
+        $sab        = $franjaData['sab'];
+        $dom        = $franjaData['dom'];
+        $fer        = $franjaData['fer'];
 
-        $sqlFranja = "INSERT INTO franjas(nombre, provincia, localidad, direccion, telefono) VALUES ('$nombre','$provincia','$localidad','$direccion','$telefono')";
+        $sqlFranja = "INSERT INTO franjas_horarias(nombre, hora_inicio, hora_fin, fecha_inicio, fecha_fin, lun, mar, mir, jue, vie, sab, dom, fer, estado) 
+        VALUES ('$nombre','$horaDesde','$horaHasta','$fechaDesde','$fechaHasta',$lun,$mar,$mie,$jue,$vie,$sab,$dom,$fer,$estado)";
 
-        DataBase::execute($sqlFranja);
+        $operacion = DataBase::execute($sqlFranja);
 
-        return $operacion; */
+        return $operacion;
     }
 
     public static function eliminar($idFranja)
