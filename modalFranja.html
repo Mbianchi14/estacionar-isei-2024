@@ -17,18 +17,17 @@
         <Div class="w-100">
             <img class="float-start" src="./Private/img/moneda.png" height="30px" alt="moneda">
         </Div>
-    <Div class="">
+    
         <Div class="w-100">
-            <h1 class="h3">Configurar una nueva tarifa</h1>
+            <h3 class="fs-5">Configurar una nueva tarifa</h3>
         </Div>
         <Div class="w-100">
-            <h3 class="h6">Completa los datos de la tarifa.</h3>
+            <h5 class="fs-6 text-secondary">Completa los datos de la tarifa.</h5>
         </Div>
-    </Div>
         <div class="row row-cols-2 pb-25">
             <Div class="d-flex flex-column"><label for="formGroupExampleInput" class="form-label" for="franja">Franja</label>
-            <select class="inputs" name="Franja" id="franja" placeholder="Seleccionar..">
-                <option value="Seleccionar">Seleccionar..</option>
+            <select class="form-select form-control-sm" aria-label="Default select example" id="exampleFormControlInput1" name="Franja" placeholder="Seleccionar..">
+                <option selected>Seleccionar..</option>
                 <option value="franja-1">Semana-Tarde</option>
                 <option value="franja-2">Semana-Noche</option>
                 <option value="franja-3">Finde-Tarde</option>
@@ -36,11 +35,11 @@
             </select></Div>
             <div class="d-flex flex-column">
                 <label for="formGroupExampleInput" class="form-label" for="fecha">Fecha</label>
-                <input class="inputs" type="date" id="fecha">
+                <input class="form-control form-control-sm" id="exampleFormControlInput1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="date">
             </div>                
             <div class="d-flex flex-column">
-                <label class="label" for="tipo-vehiculo">Tipo Vehiculo</label>        
-                <select class="inputs" name="Tipo Vehiculo" id="tipo-vehiculo" placeholder="Seleccionar..">
+                <label class="form-label" for="tipo-vehiculo">Tipo Vehiculo</label>        
+                <select class="form-select form-control-sm" aria-label="Default select example" id="exampleFormControlInput1" name="Tipo Vehiculo" placeholder="Seleccionar..">
                     <option value="Seleccionar">Seleccionar..</option>
                     <option value="Camion">Camion</option>
                     <option value="Auto">Auto</option>
@@ -49,11 +48,11 @@
                 </select>
             </div>
             <div class="d-flex flex-column">
-                <label class="label" for="monto">Monto</label>
-                <input class="inputs" type="number" placeholder="$500" id="monto">
+                <label class="form-label" for="monto">Monto</label>
+                <input class="form-control form-control-sm" id="exampleFormControlInput1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number" placeholder="$500">
             </div>
         </div>
-        <div>
+        <div class="w-100 d-flex flex-row justify-content-evenly pt-2" >
             <button class="btn btn-outline-secondary btn-sm">Cancelar</button>
             <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
             
