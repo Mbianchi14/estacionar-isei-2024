@@ -1,4 +1,4 @@
-// service-worker.js
+/* INICIALIZAMOS */
 const CACHE_NAME = "EstacionApp-v1";
 const urlsToCache = [
   "/home/inicio",
@@ -8,7 +8,7 @@ const urlsToCache = [
   "img/favicon.png.png"
 ];
 
-// Instalar el Service Worker
+/* INSTALAMOS EL SERVICE WORKER */
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -17,7 +17,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
-// Interceptar solicitudes de red
+/* Interceptamos solicitudes de red */
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
@@ -26,7 +26,7 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-// Actualizar el Service Worker
+/* Actualizar SWorkerjs  */
 self.addEventListener("activate", (event) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
