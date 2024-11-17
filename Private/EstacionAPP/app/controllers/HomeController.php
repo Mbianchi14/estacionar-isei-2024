@@ -78,6 +78,23 @@ class HomeController extends Controller
 		}
 	}
 
+
+	public function actionCocheras()
+	{
+		$head = SiteController::head();
+		$header = SiteController::header();
+		$navInferior = SiteController::navInferior();
+		$ClickHere = SiteController::ClickHere();
+		Response::render($this->viewDir(__NAMESPACE__), "cocheras", [
+			"title" => $this->title . 'cocheras',
+			"head" => $head,
+			"header" => $header,
+			"navInferior" => $navInferior,
+			"ClickHere" => $ClickHere,
+		]);
+	}
+
+
 	public function action404()
 	{
 		$head = SiteController::head();
