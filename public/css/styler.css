@@ -396,3 +396,13 @@ footer img {
 }
 
 /***FIN- Luis*****/
+
+/***Inicio - Flor****/
+.disable {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.nav-link-menu{
+    font-size: 20px !important;
+}

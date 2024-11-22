@@ -11,15 +11,15 @@
 		<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="../img/imagen1.jpg" class="d-block w-100" alt="Imagen 1">
+					<img src="../public/img/imagen1.jpg" class="d-block w-100" alt="Imagen 1">
 
 				</div>
 				<div class="carousel-item">
-					<img src="../img/imagen2.png" class="d-block w-100" alt="Imagen 2">
+					<img src="../public/img/imagen2.png" class="d-block w-100" alt="Imagen 2">
 
 				</div>
 				<div class="carousel-item">
-					<img src="../img/imagen3.png" class="d-block w-100" alt="Imagen 3">
+					<img src="../public/img/imagen3.png" class="d-block w-100" alt="Imagen 3">
 
 				</div>
 			</div>
@@ -38,13 +38,13 @@
 				<h1> Estacionar App</h1>
 			</div>
 			<div class="carousel-logo">
-				<img src="../img/logo_estacionar.png" alt="Logo">
+				<img src="../public/img/logo_estacionar.png" alt="Logo">
 			</div>
 			<div>
-				<a href="login" class="btn btn-primary"><img class="imagen-logos" src="../img/android.png" alt="Logo">
+				<a href="login" class="btn btn-primary"><img class="imagen-logos" src="../public/img/android.png" alt="Logo">
 					Descargar
 					para Android</a>
-				<a href="login" class="btn btn-primary"><img class="imagen-logos" src="../img/apple-logo.png"
+				<a href="login" class="btn btn-primary"><img class="imagen-logos" src="../public/img/apple-logo.png"
 						alt="Logo"> Descargar
 					para iOS</a>
 			</div>
@@ -76,39 +76,39 @@
 			<h2 class="mb-4">Nuestro Equipo</h2>
 			<div class="profile-container">
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 1">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 1">
 					<p>Mauricio</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 2">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 2">
 					<p>Florencia</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 3">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 3">
 					<p>Franco</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 4">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 4">
 					<p>Walter</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 5">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 5">
 					<p>Maximiliano</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 6">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 6">
 					<p>Emanuel</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 7">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 7">
 					<p>Luis</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 8">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 8">
 					<p>Lisandro</p>
 				</div>
 				<div class="profile">
-					<img src="../img/nombre.jpeg" alt="Nombre 8">
+					<img src="../public/img/nombre.jpeg" alt="Nombre 8">
 					<p>Lucas</p>
 				</div>
 			</div>
@@ -123,9 +123,9 @@
 		</div>
 		<div class="container">
 			<p>Síguenos en nuestras redes sociales</p>
-			<a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
-			<a href="#"><img src="../img/twitter-icon.png" alt="Twitter"></a>
-			<a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+			<a href="#"><img src="../public/img/facebook-icon.png" alt="Facebook"></a>
+			<a href="#"><img src="../public/img/twitter-icon.png" alt="Twitter"></a>
+			<a href="#"><img src="../public/img/instagram-icon.png" alt="Instagram"></a>
 		</div>
 	</footer>
 	<script>

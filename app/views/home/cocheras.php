@@ -105,12 +105,12 @@
         <div class="search-overlay position-absolute top-0 start-50 translate-middle-x mt-7">
             <form method="GET" class="d-flex flex-row gap-2">
                 <input type="text" class="form-control" name="search" placeholder="Buscar ubicación..." required>
-                <select class="form-select" name="category">
+                <!-- <select class="form-select" name="category">
                     <option value="" selected disabled>Selecciona un filtro</option>
                     <option value="cochera">cochera</option>
                     <option value="hotels">op 1 </option>
                     <option value="parks">op 2</option>
-                </select>
+                </select> -->
                 <button type="submit" class="btn btn-primary">Buscar</button>
             </form>
         </div>
