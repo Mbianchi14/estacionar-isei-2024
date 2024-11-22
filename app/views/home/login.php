@@ -24,7 +24,7 @@
             <?php if (!empty($error)): ?>
                 <div class="position-relative mb-3">
                     <?php foreach ($error as $e): ?>
-                        <output class="text-danger small d-block bg-light p-2 rounded shadow-sm border border-danger mt-1">
+                        <output class="text-danger small fw-semibold d-block p-2 mt-1">
                             <?php echo htmlspecialchars($e) ?>
                         </output>
                     <?php endforeach; ?>
